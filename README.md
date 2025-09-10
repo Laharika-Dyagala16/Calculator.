@@ -18,7 +18,7 @@ Additional functions like decimal points, percentage, or parentheses
 
 
 
-Technologies Used
+Technologies Used 
 
 
 HTML5: Defines the structure
