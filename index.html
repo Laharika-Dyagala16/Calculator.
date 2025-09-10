@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator Project</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f3f3f3;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .calculator {
+      width: 320px;
+      max-width: 95%;
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    .display {
+      background: #000;
+      color: #0f0;
+      font-size: 2rem;
+      padding: 20px;
+      text-align: right;
+      border-bottom: 2px solid #444;
+      word-wrap: break-word;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    button {
+      padding: 20px;
+      font-size: 1.2rem;
+      border: 1px solid #333;
+      background: #444;
+      color: white;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #555;
+    }
+
+    .equal {
+      grid-column: span 2;
+      background: #0a84ff;
+    }
+
+    .equal:hover {
+      background: #006edc;
+    }
+
+    .clear {
+      background: #ff3b30;
+    }
+
+    .clear:hover {
+      background: #d32f2f;
+    }
+
+    /* 🔹 Mobile Responsive */
+    @media (max-width: 480px) {
+      .display {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+
+      button {
+        padding: 15px;
+        font-size: 1rem;
+      }
+
+      .calculator {
+        width: 100%;
+        margin: 10px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .display {
+        font-size: 1.2rem;
+      }
+
+      button {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+      <button class="clear">C</button>
+      <button>/</button>
+      <button>*</button>
+      <button>-</button>
+
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>+</button>
+
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>.</button>
+
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button class="equal">=</button>
+
+      <button style="grid-column: span 4;">0</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+    const buttons = document.querySelectorAll("button");
+    let currentInput = "";
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const value = button.textContent;
+
+        if (value === "C") {
+          currentInput = "";
+          display.textContent = "0";
+        } else if (value === "=") {
+          try {
+            currentInput = eval(currentInput).toString();
+            display.textContent = currentInput;
+          } catch {
+            display.textContent = "Error";
+          }
+        } else {
+          currentInput += value;
+          display.textContent = currentInput;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
