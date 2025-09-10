@@ -26,3 +26,9 @@ Technologies Used
 . CSS3: Styling and responsive layout
 
 . JavaScript (ES6+): Calculator logic and interactivity
+
+
+Screenshot
+
+<img width="469" height="678" alt="Screenshot" src="https://github.com/user-attachments/assets/816c7929-d9ac-444c-b271-6dc5e2d50c2c" />
+
